@@ -1,5 +1,5 @@
 """
-WSGI config for blog project.
+WSGI config for mysite project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "blog.settings.dev")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings.dev")
 
 application = get_wsgi_application()

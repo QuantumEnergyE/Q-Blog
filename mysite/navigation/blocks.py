@@ -14,7 +14,7 @@ class ExternalLinkBlock(BaseLinkBlock):
     link = blocks.URLBlock()
 
     class Meta:
-        template = 'navigation_bar/external_link_block.html'
+        template = 'navigation/external_link_block.html'
 
 class PageLinkBlock(BaseLinkBlock):
     """
@@ -23,7 +23,7 @@ class PageLinkBlock(BaseLinkBlock):
     page = blocks.PageChooserBlock()
 
     class Meta:
-        template = 'navigation_bar/page_link_block.html'
+        template = 'navigation/page_link_block.html'
 
 class LinkChildrenBlock(blocks.StructBlock):
     """

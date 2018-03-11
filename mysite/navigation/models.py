@@ -28,7 +28,7 @@ class Navbar(models.Model):
 register_snippet(Navbar)
 
 
-class PageWithNavbar(Page):
+class NavbarPage(Page):
     navbar = models.ForeignKey(
         Navbar,
         null=True,

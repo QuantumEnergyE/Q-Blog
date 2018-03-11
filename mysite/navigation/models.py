@@ -6,6 +6,8 @@ from wagtail.snippets.models import register_snippet
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from .blocks import ExternalLinkWithChildrenBlock, PageLinkWithChildrenBlock
 
+
+@register_snippet
 class Navbar(models.Model):
     """
     Model that represents website navigation bars.  Can be modified through the
@@ -24,8 +26,6 @@ class Navbar(models.Model):
 
     def __str__(self):
         return self.name
-
-register_snippet(Navbar)
 
 
 class NavbarPage(Page):

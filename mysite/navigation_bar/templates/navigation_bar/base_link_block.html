@@ -1,0 +1,19 @@
+{% block menu_item %}
+{% load wagtailcore_tags %}
+
+<li>
+    <a href="{% block url %}#{% endblock %}" class="{% if value.children %}dropwdown-toggle{% endif %}" {% if value.children %}data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" {% endif %}>
+        <div class="menu-item-display">
+            {% block display_text %}{{value.display_text}}{% if value.children %}<span class="caret"></span>{% endif %}{% endblock %}
+        </div>
+    </a>
+    {% if value.children %}
+    <ul class="dropdown-menu">
+    {% for child in value.children %}
+        {% include_block child %}
+    {% endfor %}
+    </ul>
+    {% endif %}
+</li>
+
+{% endblock %}

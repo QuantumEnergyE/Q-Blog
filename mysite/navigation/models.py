@@ -4,7 +4,8 @@ from wagtail.core.fields import StreamField
 from wagtail.core.models import Page
 from wagtail.snippets.models import register_snippet
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
-from .blocks import ExternalLinkWithChildrenBlock, PageLinkWithChildrenBlock
+from .blocks import ExternalLinkBlock, PageLinkBlock
+
 
 
 @register_snippet
@@ -15,8 +16,8 @@ class Navbar(models.Model):
     """
     name = models.CharField(max_length=255)
     menu_items = StreamField([
-        ('external_link', ExternalLinkWithChildrenBlock()),
-        ('page_link', PageLinkWithChildrenBlock()),
+        ('external_link', ExternalLinkBlock()),
+        ('page_link', PageLinkBlock()),
         ],)
 
     panels = [

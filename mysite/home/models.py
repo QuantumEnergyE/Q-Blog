@@ -1,7 +1,16 @@
 from django.db import models
 
 from wagtail.core.models import Page
+from blog.models import BlogNavigation
 
 
 class HomePage(Page):
-    pass
+    def get_context(self, request):
+
+        # Filter by tag
+        blog_navigation = BlogNavigation.objects.first()
+
+        # Update template context
+        context = super().get_context(request)
+        context['blog'] = blog_navigation
+        return context

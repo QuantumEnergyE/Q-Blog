@@ -1,4 +1,4 @@
-{% load static %}
+{% load static wagtailcore_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -69,7 +69,9 @@
         <div class="intro-text">
             <div class="intro-lead-in">Hello World</div>
             <div class="intro-heading">Quantum's Blog</div>
-            <a href="#blog" class="page-scroll btn btn-xl">Blog</a>
+            {% with blog=blog %}
+                <a href="{% pageurl blog %}" class="page-scroll btn btn-xl">Blog</a>
+            {% endwith %}
         </div>
     </div>
 </header>

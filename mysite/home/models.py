@@ -12,5 +12,6 @@ class HomePage(Page):
 
         # Update template context
         context = super().get_context(request)
-        context['blog'] = blog_navigation
+        # Blog's Navigation
+        context['blog_navigation'] = blog_navigation
         return context

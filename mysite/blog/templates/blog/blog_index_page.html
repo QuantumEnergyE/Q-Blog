@@ -1,23 +1,20 @@
-{% extends "base.html" %}
+{% load static wagtailcore_tags wagtailimages_tags %}
 
-{% load wagtailcore_tags wagtailimages_tags %}
-
-{% block body_class %}template-blogindexpage{% endblock %}
-
-{% block content %}
-    <h1>{{ page.title }}</h1>
-
-    <div class="intro">{{ page.intro|richtext }}</div>
-
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link href="{% static 'css/blog_index_page.css' %}">
+</head>
+<title>{{ page.title }}</title>
+<body>
+<ul>
     {% for post in blogpages %}
         {% with post=post.specific %}
-            <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
-            {% with post.main_image as main_image %}
-                {% if main_image %}{% image main_image fill-160x100 %}{% endif %}
-            {% endwith %}
-            <p>{{ post.intro }}</p>
-            {{ post.body|richtext }}
+            <li>
+                <h3><a href="{% pageurl post %}">{{ post.title }} </a> <span style="font-size: 14px">{{post.date|date:"Y-m-d H:i"}}</span></h3>
+            </li>
         {% endwith %}
     {% endfor %}
-
-{% endblock %}
+</ul>
+</body>
+</html>

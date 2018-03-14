@@ -66,7 +66,7 @@ class BlogTagIndexPage(Page):
 
 
 class BlogPage(Page):
-    date = models.DateField("Post date")
+    date = models.DateTimeField("Post date")
     intro = models.CharField(max_length=250)
     body = RichTextField(blank=True)
     tags = ClusterTaggableManager(through=BlogPageTag, blank=True)

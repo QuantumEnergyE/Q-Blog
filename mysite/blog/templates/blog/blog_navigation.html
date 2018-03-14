@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Pure CSS, equal-width navigation tabs with Responsive-nav.js</title>
+    <title>Blog</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
@@ -26,6 +26,21 @@
         {% endfor %}
     </ul>
 </nav>
+
+<section>
+    {% for blog_index_page in blog_index_pages %}
+    <ul>
+        {% for post in blog_index_page.get_children %}
+            {% with post=post.specific %}
+                <li>
+                    <h3><a href="{% pageurl post %}" style="font-size: 18px;color: darkgray">{{ post.title }} </a> <span style="font-size: 16px;color: #777777">{{post.date|date:"Y-m-d H:i"}}</span></h3>
+                    <br>
+                </li>
+            {% endwith %}
+        {% endfor %}
+    </ul>
+    {% endfor %}
+</section>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/responsive-nav.js/1.0.32/responsive-nav.min.js'></script>
 
 

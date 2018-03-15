@@ -13,3 +13,9 @@ var navigation = responsiveNav(".nav-collapse", {
   open: function(){},               // Function: Open callback
   close: function(){}               // Function: Close callback
 });
+
+
+function open_blog(obj) {
+  console.log(obj);
+  document.getElementById('blog_iframe').src = obj;
+}

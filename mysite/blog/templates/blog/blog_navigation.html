@@ -16,7 +16,7 @@
 </head>
 
 <body>
-
+<div>
 <nav class="nav-collapse" role="navigation">
     <ul class="tabs primary-nav">
         {% for blog_index_page in blog_index_pages %}
@@ -27,20 +27,28 @@
     </ul>
 </nav>
 
-<section>
+<div style="display: flex;clear: both;">
+<section style="display:inline-block;width:300px">
     {% for blog_index_page in blog_index_pages %}
     <ul>
         {% for post in blog_index_page.get_children %}
             {% with post=post.specific %}
                 <li>
                     <h3><a href="{% pageurl post %}" style="font-size: 18px;color: darkgray">{{ post.title }} </a> <span style="font-size: 16px;color: #777777">{{post.date|date:"Y-m-d H:i"}}</span></h3>
-                    <br>
                 </li>
             {% endwith %}
         {% endfor %}
     </ul>
     {% endfor %}
 </section>
+
+<section style="display:inline-block;flex:1">
+
+    <h1 style="color:blueviolet">Hello world</h1>
+</section>
+
+</div>
+</div>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/responsive-nav.js/1.0.32/responsive-nav.min.js'></script>
 
 

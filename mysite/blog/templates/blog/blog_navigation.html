@@ -21,33 +21,13 @@
     <ul class="tabs primary-nav">
         {% for blog_index_page in blog_index_pages %}
             <li class="tabs__item">
-                <a href="{% pageurl blog_index_page %}" class="tabs__link">{{blog_index_page.title}}</a>
+                <a href="#" class="tabs__link" onclick="open_index('{% pageurl blog_index_page %}')">{{ blog_index_page.title }}</a>
             </li>
         {% endfor %}
     </ul>
 </nav>
-
-<div style="display: flex;clear: both;">
-<section style="display:inline-block;width:300px">
-    {% for blog_index_page in blog_index_pages %}
-    <ul>
-        {% for post in blog_index_page.get_children %}
-            {% with post=post.specific %}
-                <li>
-                    <h3><a href="#" style="font-size: 18px;color: darkgray" onclick="open_blog('{% pageurl post %}')">{{ post.title }} </a> <span style="font-size: 16px;color: #777777">{{post.date|date:"Y-m-d H:i"}}</span></h3>
-                </li>
-            {% endwith %}
-        {% endfor %}
-    </ul>
-    {% endfor %}
-</section>
-
-<section style="display:inline-block;flex:1">
-    <iframe id="blog_iframe" style="width: 100%; height: 100%;  " src=""></iframe>
-</section>
-
 </div>
-</div>
+<iframe id="index_iframe" style="width: 100%; height: 100%;  border: 0px" src=""></iframe>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/responsive-nav.js/1.0.32/responsive-nav.min.js'></script>
 
 
